@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Manoj_Adminform>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Manoj_Adminform>
+    </modules>
+</config>

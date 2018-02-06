@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Manoj_Adminform>
+            <version>0.1.0</version>
+        </Manoj_Adminform>
+    </modules>
+    <admin>
+        <routers>
+            <adminform>
+                <use>admin</use>
+                <args>
+                    <module>Manoj_Adminform</module>
+                    <frontName>Form</frontName>
+                </args>
+            </adminform>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <adminform module="adminform">
+                <title>Custom Form</title>
+                <sort_order>72</sort_order>
+                <children>
+                    <items module="adminform">
+                        <title>Manage Form</title>
+                        <sort_order>0</sort_order>
+                        <action>adminform/adminhtml_adminform</action>
+                    </items>
+                </children>
+            </adminform>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <Manoj_Adminform>
+                            <title>Adminform Module</title>
+                            <sort_order>10</sort_order>
+                        </Manoj_Adminform>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <adminform>
+                    <file>adminform.xml</file>
+                </adminform>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <adminform>
+                <class>Manoj_Adminform_Model</class>
+                <resourceModel>adminform_mysql4</resourceModel>
+            </adminform>
+            <adminform_mysql4>
+                <class>Manoj_Adminform_Model_Mysql4</class>
+                <entities>
+                    <adminform>
+                        <table>adminform</table>
+                    </adminform>
+                </entities>
+            </adminform_mysql4>
+        </models>
+        <resources>
+            <adminform_setup>
+                <setup>
+                    <module>Manoj_Adminform</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </adminform_setup>
+            <adminform_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </adminform_write>
+            <adminform_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </adminform_read>
+        </resources>
+        <blocks>
+            <adminform>
+                <class>Manoj_Adminform_Block</class>
+            </adminform>
+        </blocks>
+        <helpers>
+            <adminform>
+                <class>Manoj_Adminform_Helper</class>
+            </adminform>
+        </helpers>
+    </global>
+</config>
+
